@@ -1,0 +1,1364 @@
+/* ----------------------------------------------------------------Main---------------------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none; 
+            user-select: none;
+}
+
+#start-img {
+    -webkit-filter: invert(1);
+    filter: invert(1);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#body2 {
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100vw;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ----------------------------------------------------------------Navigation bar---------------------------------------------------------------- */
+
+nav {
+    display: flex;
+    width: 100%;
+    height: 3.6%;
+    background-color: rgba(44, 44, 44, 0.911);
+    position: absolute;
+    bottom: 0;
+    justify-content: center;
+    z-index: 100;
+}
+
+nav ul {
+    width: 50%;
+    display: flex;
+    height: 100%;
+}
+
+nav ul li {
+    height: 100%;
+    width: 4.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul li:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+nav ul li:active {
+    background-color: rgba(180, 180, 180, 0.2);
+}
+
+nav ul li img {
+    width: 35%;
+    height: 40%;
+}
+
+#file-explorer-img {
+    width: 40%;
+    height: 50%;
+}
+
+#chrome img {
+    width: 0.9vw;
+    height: 0.9vw;
+}
+
+/* --------------------------------Search-------------------------------- */
+
+#search {
+    width: 36%;
+    height: 100%;
+}
+
+#search input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    font-size: 0.8vw;
+    background-image: url("search.png");
+    background-size: 11%;
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 10%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border: 0.15vw solid white;
+}
+
+#search input:focus {
+    outline: none;
+    border: 0.15vw solid rgb(67, 104, 185);
+}
+
+#search input::placeholder {
+    color: rgb(0, 0, 0);
+}
+
+/* --------------------------------Start-------------------------------- */
+
+#start:active {
+    background-color: rgba(36, 36, 36, 0.3);
+}
+
+#start:hover > #start-img {
+    content: url("windowslogoblue.png");
+    -webkit-filter: invert(0);
+    filter: invert(0);
+}
+
+#start:hover ~ #start-hover {
+    opacity: 1;
+}
+
+#start-hover {
+    background-color: white;
+    position: absolute;
+    opacity: 0;
+    bottom: 100%;
+    left: 0.28%;
+    font-size: 0.7vw;
+    width: 1.5%;
+    text-align: center;
+    padding: 0.1%;
+    transition: all ease-in-out 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#start-hover:hover {
+    cursor: default;
+}
+
+/* ----------------------------------------------------------------Start Menu---------------------------------------------------------------- */
+
+#start-menu {
+    position: absolute;
+    width: 31.7%;
+    height: 50%;
+    background-color: rgba(36, 36, 36, 0.911);
+    bottom: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+}
+
+#start-menu.visible {
+    opacity: 1;
+    width: 31.7%;
+    height: 1540%;
+    pointer-events: all;
+}
+
+#start-menu-menu {
+    height: 100%;
+    width: 4.1%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    z-index: 5;
+}
+
+#start-menu-menu img {
+    padding: 54%;
+    padding-top: 60%;
+    height: 2.7%;
+    width: 100%;
+}
+
+#start-menu-menu img:hover {
+    background-color: rgba(255, 255, 255, 0.329);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#apps {
+    width: 42%;
+    margin-left: 3.4%;
+    margin-top: 1.5%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-color: red;
+    scrollbar-width: thin;
+}
+
+#apps p {
+    color: rgb(224, 224, 224);
+    width: 85%;
+    height: 5.3%;
+    padding-left: 3.5%;
+    font-size: 0.6vw;
+    display: flex;
+    align-items: center;
+}
+
+#apps p:hover {
+    cursor: default;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#apps p:active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#apps div img {
+    aspect-ratio: 0.9;
+    height: 70%;
+    margin-right: 3%;
+}
+
+#apps div {
+    width: 85%;
+    height: 5.3%;
+    padding-left: 3.5%;
+    color: rgb(224, 224, 224);
+    display: flex;
+    align-items: center;
+    font-size: 0.6vw;
+}
+
+#apps div:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: default;
+}
+
+#apps div:active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#big-start-buttons {
+    margin-top: 3%;
+    width: 50%;
+    height: 97%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    align-content: start;
+}
+
+#big-start-buttons p {
+    width: 100%;
+    color: rgb(224, 224, 224);
+    font-size: 0.6vw;
+    margin-bottom: 4%;
+}
+
+#big-start-buttons div img {
+    width: 35%;
+    margin-top: 25%;
+    margin-bottom: 13%;
+}
+
+#big-start-buttons div {
+    width: 31%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.7%;
+    background-color: rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+}
+
+#big-start-buttons div img {
+    width: 40%;
+}
+
+#big-start-buttons div:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#big-start-buttons div:active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#big-start-buttons div p {
+    margin-left: 5%;
+}
+
+/* ----------------------------------------------------------------File Explorer---------------------------------------------------------------- */
+
+#file-explorer-menu {
+    background-color: white;
+    position: absolute;
+    top: 15%;
+    left: 23%;
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all ease-in-out 0.2s;
+}
+
+#file-explorer-menu header {
+    height: 6%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#left-file-explorer-nav {
+    display: flex;
+    height: 100%;
+    width: 50%;
+    align-items: center;
+}
+
+#left-file-explorer-nav img {
+    width: 0.9vw;
+    margin: 0px 0.5vw;
+}
+
+#left-file-explorer-nav p {
+    display: flex;
+    width: 10vw;
+    flex-wrap: nowrap;
+    font-size: 0.8vw;
+    color: gray;
+}
+
+#left-file-explorer-nav p:hover {
+    cursor: default;
+}
+
+#right-file-explorer-nav {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: right;
+}
+
+#right-file-explorer-nav div {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#file-explorer-menu-minimize:hover, #file-explorer-menu-fullscreen:hover {
+    background-color: rgba(36, 36, 36, 0.2);
+}
+
+#file-explorer-menu-close:hover {
+    background-color: rgb(187, 38, 38);
+}
+
+#right-file-explorer-nav div img {
+    width: 0.65vw;
+}
+
+#file-explorer-menu.visible {
+    width: 52%;
+    height: 55%;
+    opacity: 1;
+    pointer-events: all;
+}
+
+#second-file-explorer-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 0.1vw solid rgb(209, 209, 209);
+}
+
+#second-file-explorer-nav div {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#second-file-explorer-nav div img {
+    width: 1vw;
+    margin-left: 0.1vw;
+    padding: 0.2vw;
+    border: 0.1vw solid transparent;
+}
+
+#second-file-explorer-nav div img:hover {
+    background-color: rgb(241, 245, 253);
+    border: 0.1vw solid rgb(174, 200, 255);
+}
+
+#second-file-explorer-nav-right {
+    width: max-content;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+#second-file-explorer-nav div div {
+    display: flex;
+    justify-content: center;
+    width: 1.3vw;
+    padding: 0.3vh 1.2vw;
+    border: 0.1vw solid transparent;
+    transition: background-color 0.1s, border 0.1s;
+}
+
+#second-file-explorer-nav div div p {
+    font-size: 0.75vw;
+}
+
+#second-file-explorer-nav-setting:hover {
+    border: 0.1vw solid rgb(221, 221, 221);
+    border-bottom: 1px solid transparent;
+}
+
+#second-file-explorer-nav-file {
+    background-color: rgb(83, 122, 207);
+    color: white;
+}
+
+#second-file-explorer-nav-file:hover {
+    background-color: rgb(95, 143, 245);
+}
+
+#third-file-explorer-nav {
+    width: 100%;
+    height: 2vw;
+    margin: 0.2vw 0px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#third-file-explorer-nav img {
+    width: 1.2vw;
+    margin: 0px 0.2vw;
+}
+
+#third-file-explorer-nav-search-container {
+    height: 95%;
+    width: 49%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border: 0.1vw solid rgb(200, 200, 200);
+}
+
+#file-explorer-input {
+    height: 100%;
+    border: none;   
+    font-size: 0.8vw;
+    width: 81%;
+}
+
+#third-file-explorer-nav-search-container div {
+    width: fit-content;
+    float: left;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+#third-file-explorer-nav-search-container div p {
+    font-size: 0.8vw;
+}
+
+#file-explorer-input:hover {
+    cursor: default;
+}
+
+#file-explorer-reset  {
+    height: 95%;
+    aspect-ratio: 1;
+    border: 0.1vw solid rgb(200, 200, 200);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#medium-arrow-down {
+    rotate: 90deg;
+    float: right;
+    justify-self: end;
+}
+
+#third-file-explorer-nav-search-container input:focus {
+    outline: none;
+}
+
+#third-file-explorer-nav-second-search-container {
+    height: 95%;
+    width: 31.5%;
+    border: 0.1vw solid rgb(200, 200, 200);
+    margin-left: 0.5vw;
+    display: flex;
+    align-items: center;
+}
+
+#third-file-explorer-nav-second-search-container input{
+    height: 100%;
+    border: none;   
+    font-size: 0.8vw;
+    width: 88%;
+}
+
+#third-file-explorer-nav-second-search-container input:focus {
+    outline: none;
+}
+/* -----------------------------------------------------------------Calculator----------------------------------------------------------------- */
+
+#calculator {
+    background-color: white;
+    position: absolute;
+    top: 15%;
+    left: 23%;
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    pointer-events: none;
+    transition: all ease-in-out 0.2s;
+}
+
+                              /* --------------------------------Calculator Navbar-------------------------------- */
+
+#calculator-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5%;
+    width: 100%;
+}
+
+#right-calculator-nav {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+#right-calculator-nav div {
+    width: 35%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calculator-minimize:hover, #calculator-fullscreen:hover {
+    background-color: rgba(36, 36, 36, 0.2);
+}
+
+#calculator-close:hover {
+    background-color: rgb(187, 38, 38);
+}
+
+#calculator-close:hover + #calculator-close img {
+    filter: invert(1);
+    -webkit-filter: invert(1);
+}
+
+#right-calculator-nav div img {
+    width: 0.8vw;
+}
+
+#left-calculator-nav { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+}
+
+#left-calculator-nav p {
+    font-size: 0.8vw;
+    font-weight: 500;
+}
+
+#left-calculator-nav p:hover {
+    cursor: default;
+}
+
+#calculator-header2 {
+    width: 100%;
+    height: 8%;
+    margin-top: 1%;
+    display: flex;
+    align-items: center;
+}
+
+#calculator-burger {
+    width: 1.5vw;
+    padding: 0.5vw;
+    padding-right: 0.65vw;
+    padding-bottom: 0.65vw;
+}
+
+#calculator-burger:hover {
+    background-color: rgb(207, 207, 207);
+}
+
+#calculator-burger:active {
+    background-color: rgb(189, 189, 189);
+}
+
+#calculator-header2 p {
+    font-size: 1.3vw;
+    margin-left: 0.5vw;
+}
+
+#calculator-header2 p:hover {
+    cursor: default;
+}
+
+#calculator-output {
+    height: 16.5%;
+    width: 96%;
+    text-align: right;
+    font-size: 2.6vw;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#calculator-output:hover {
+    cursor: default;
+}
+
+#calculator.visible {
+    width: 19.55%;
+    height: 60%;
+    opacity: 1;
+    pointer-events: all;
+}
+
+#calculator-header3 {
+    width: 100%;
+    height: 6%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 0.1vh solid rgb(221, 221, 221);
+}
+
+#calculator-header3 p {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9vw;
+    font-weight: 600;
+}
+
+#calculator-header3 #black:hover {
+    background-color: rgb(221, 221, 221);
+    cursor: default;
+}
+
+#calculator-header3 p:hover {
+    cursor: default;
+}
+
+#calculator-header3 #gray {
+    color: rgb(185, 185, 185);
+}
+
+#calculate {
+    width: 100%;
+    height: 64.3%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#calculate div {
+    width: 25%;
+    height: 16%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+#calculator.visible #calculate div {
+    display: flex;
+}
+
+#calculate div p {
+    text-align: center;
+    font-size: 1.2vw;
+    font-weight: 600;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#calculate div img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#calculator-backspace {
+    width: 1.2vw;
+}
+
+#calculator-divide { 
+    width: 1vw;
+}
+
+#calculate div:hover {
+    background-color: rgb(221, 221, 221);
+    cursor: default;
+}
+
+#calculate div:active {
+    background-color: rgb(204, 204, 204);
+}
+
+/* --------------------------------Right taskbar--------------------------------*/
+
+#open-desktop {
+    border-left: rgba(255, 255, 255, 0.329) solid 1px;
+    width: 0.4%;
+}
+
+#open-desktop:hover {
+    background-color: rgba(155, 155, 155, 0.2);
+}
+
+#right-taskbar {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+#notifications-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    aspect-ratio: 1;
+    margin-right: 0.5%;
+    padding-left: 0.5%;
+}
+
+#notifications-button img {
+    margin-top: 18%;
+    width: 65%;
+}
+
+#notifications-button:hover {
+    background-color: rgba(255, 255, 255, 0.09);
+}
+
+#time-date {
+    width: 7%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#time-date:hover {
+    background-color: rgba(255, 255, 255, 0.09);
+}
+
+#time-date:active {
+    background-color: rgba(255, 255, 255, 0.13);
+}
+
+#time-date li {
+    color: white;
+    font-size: 0.6vw;
+    width: 100%;
+    height: 0%;
+}
+
+#time-date li:hover {
+    cursor: default;
+}
+
+/* -----------------------------------------------------------------Notification Panel----------------------------------------------------------------- */
+
+#notifications {
+    position: absolute;
+    background-color: rgba(49, 49, 49, 0.911);
+    width: 20.6%;
+    height: 96.4%;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: start;
+    border-left: 1px rgb(97, 97, 97) solid;
+    opacity: 0;
+    transition: all ease-in-out 0.2s;
+    transform: translateX(100%);
+    z-index: 100;
+}
+
+#notifications.visible {
+    opacity: 1;
+    transform: translateX(0%);
+    pointer-events: all;
+}
+
+#notifications-header {
+    width: 91%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+#action-center-title {
+    color: rgb(181, 222, 255);
+    text-decoration: none;
+    font-size: 0.65vw;
+}
+
+#notification {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 5%;
+}
+
+#snipping-tool {
+    height: 0.95vw;
+}
+
+#notification h1 {
+    color: white;
+    font-size: 0.75vw;
+    margin-bottom: 3%;
+    font-weight: 600;
+    margin-left: 2.8%;
+}
+
+#shrek {
+    position: relative;
+    left: 0;
+    width: 81%;
+}
+
+#notification-information {
+    width: 84%;
+    background-color: rgba(41,42,42, 0.3);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5% 4%;
+}
+
+#notification-information > * {
+    color: rgb(160, 160, 160);
+    line-height: 1.1vw;
+}
+
+#notification-information h1 {
+    color: white;
+    font-size: 0.85vw;
+    margin: 0;
+}
+
+#notification-information h2 {
+    font-size: 0.8vw;
+    font-weight: 400;
+    line-height: 1vw;
+}
+
+#notification-information p {
+    padding: 1% 0 0 0;
+    font-size: 0.70vw;
+}
+
+#notifications-settings-panel {
+    width: 94%;
+    height: 6.5%;
+    margin-top: 29.5vw;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#notifications-setting {
+    width: 23.8%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    transition: all ease-in-out 0.05s;
+}
+
+#nightmode {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(255, 102, 0, 0.05);
+    z-index: 100000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+#notifications-setting:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#notifications-setting:active {
+    background-color: rgba(255, 255, 255, 0.329);
+}
+
+#notifications-setting.enabled {
+    background-color: rgb(67, 104, 185);
+}
+
+#notifications-setting.enabled:hover {
+    background-color: rgb(67, 104, 185);
+    border: 1px solid white;
+}
+
+#notifications-setting img {
+    margin-top: 0.4vh;
+    margin-left: 0.1vw;
+    width: 1.05vw;
+}   
+
+#notifications-setting p {
+    color: white;
+    font-size: 0.62vw;
+    margin-top: 0.75vw;
+    margin-left: 0.2vw;
+    font-weight: 400;
+}
+
+/* -----------------------------------------------------------------Chrome----------------------------------------------------------------- */
+
+#chrome-app {
+    position: absolute;
+    top: 0.7vw;
+    left: 0.7vw;
+    background-color: rgb(34, 34, 34);
+    border-radius: 0.45vw;
+    opacity: 0;
+    width: 68%;
+    height: 93%;
+    filter: contrast(0);
+    pointer-events: none;
+    transition: ease-in-out 0.2s;
+    transition-property: width, height, opacity, filter;
+}
+
+#chrome-app.visible {
+    opacity: 1;
+    filter: contrast(1);
+    pointer-events: all;
+}
+
+#chrome-header {
+    width: 100%;
+    height: 2.1vw;
+    border-radius: 0.45vw 0.45vw 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#left-chrome-header {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    margin-left: 0.05vw;
+}
+
+#chrome-history-container {
+    background-color: rgb(34, 34, 34);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.1vw;
+    width: 2.1vw;
+    border-radius: 0.45vw 0 0.6vw 0;
+    z-index: 5;
+}
+
+#chrome-history {
+    width: 0.5vw;
+    background-color: rgb(60, 60, 60);
+    padding: 0.48vw;
+    border-radius: 0.55vw;
+}
+
+#gray-space {
+    background-color: rgb(60, 60, 60);
+    height: 2.1vw;
+    width: 2.1vw;
+    position: absolute;
+    border-radius: 0.45vw 0.45vw 0 0.45vw;
+}
+
+#chrome-tab {
+    width: 12.1vw;
+    height: 1.9vw;
+    margin-top: 0.5vw;
+    margin-left: 2.1vw;
+    background-color: rgb(60, 60, 60);
+    border-radius: 0.45vw 0.45vw 0 0;
+    z-index: 4;
+    position: absolute;
+}
+
+#chrome-tab-chrome {
+    width: 0.8vw;
+    margin-left: 0.4vw;
+    margin-top: 0.32vw;
+    filter: brightness(0.75);
+    position: absolute;
+}
+
+#chrome-tab p {
+    color: rgb(218, 218, 218);
+    top: 0;
+    margin-top: 0.33vw;
+    margin-left: 1.6vw;
+    font-size: 0.63vw;
+    position: absolute;
+}
+
+#chrome-tab-close {
+    filter: brightness(200);
+    width: 0.46vw;
+    position: absolute;
+    margin-top: 0.48vw;
+    margin-left: 11vw;
+}
+
+#gray-space-2 {
+    background-color: rgb(60, 60, 60);
+    height: 2.1vw;
+    width: 2.3vw;
+    position: absolute;
+    border-radius: 1vw 1vw 1vw 0;
+    margin-left: 14.2vw;
+}
+
+#chrome-add-tab {
+    width: 2.3vw;
+    height: 2.1vw;
+    border-radius: 0.55vw;
+    color: rgb(221, 221, 221);
+    margin-left: 12.1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1vw;
+    z-index: 4;
+    background-color: rgb(34, 34, 34);
+}
+
+#chrome-add-tab p {
+    margin-bottom: 0.23vw;
+    margin-right: 0.23vw;
+}
+
+#right-chrome-header {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    justify-content: end;
+}
+
+#right-chrome-header div{
+    width: 8vw;
+    height: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: end;
+}
+
+#right-chrome-header div img {
+    width: 0.58vw;
+    padding: 0.758vw 0.92vw;
+    transition: background-color ease-in-out 0.1s;
+}
+
+#chrome-close-white {
+    border-top-right-radius: 0.5vw;
+}
+
+#chrome-setting:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#chrome-close-white:hover {
+    background-color: red;
+}
+
+#chrome-header-2 {
+    width: 100%;
+    height: 2.4vw;
+    border-radius: 0.45vw 0.45vw 0 0;
+    background-color: rgb(60, 60, 60);
+    border-bottom: 0.1vw solid rgb(70, 70 ,70);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#chrome-arrow-left {
+    width: 0.85vw;
+    margin-left: 0.75vw;
+}
+
+#chrome-arrow-right {
+    width: 0.85vw;
+    margin-left: 0.95vw;
+}
+
+#chrome-reverse {
+    width: 1.2vw;
+    margin-left: 0.95vw;
+    filter: brightness(0) invert(1);
+}
+
+#chrome-search-icon {
+    width: 1.75vw;
+    height: 1.78vw;
+    margin-top: 0.03vw;
+    background-color: rgb(37, 37, 37);
+    margin-left: 0.75vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1vw 0 0 1vw;
+    transition: background-color ease-in-out 0.2s;
+}
+
+#chrome-search-icon img {
+    width: 0.7vw;
+    padding: 0.25vw;
+    border-radius: 100%;
+    background-color: rgb(65, 65, 65);
+}
+
+#chrome-search {
+    background-color: rgb(37, 37, 37);
+    border: none;
+    height: 1.6vw;
+    width: 51.25vw;
+    margin-top: 0.05vw;
+    transition: ease-in-out 0.2s;
+    transition-property: width, background-color;
+    color: white;
+    font-size: 0.75vw;
+    padding-bottom: 0.15vw;
+    padding-left: 0.25vw;
+}
+
+#chrome-search::-webkit-input-placeholder {
+    color: white;
+}
+
+#chrome-search:focus {
+    outline: none;
+}
+
+#chrome-search:focus::placeholder {
+    color: transparent;
+}
+
+body:has(#chrome-search:hover) #chrome-search-icon, body:has(#chrome-search:hover) #chrome-star-icon, #chrome-search:hover {
+    background-color: rgb(85, 85 ,85);
+}
+
+#chrome-star-icon {
+    width: 2.08vw;
+    height: 1.78vw;
+    margin-top: 0.03vw;
+    background-color: rgb(37, 37, 37);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 1vw 1vw 0;
+    transition: background-color ease-in-out 0.2s;
+}
+
+#chrome-star-icon img {
+    width: 1vw;
+    margin-right: 0.4vw;   
+    filter: brightness(80%);
+    transition: ease-in-out 0.2s;
+    transition-property: background-color, border-radius;
+}
+
+#chrome-star-icon img:hover {
+    background-color: rgb(75, 75, 75);
+    padding: 0.1vw;
+    border-radius: 100%;
+}
+
+#chrome-sidepanel {
+    width: 1.05vw;
+    margin-left: 0.5vw;
+    padding: 0.325vw;
+    border-radius: 100%;
+    transition: background-color ease-in-out 0.2s;
+}
+
+#chrome-sidepanel:hover {
+    background-color: rgb(75, 75, 75);
+}
+
+#chrome-user {
+    width: 1.15vw;
+    margin-left: 0.1vw;
+    padding: 0.35vw;
+    border-radius: 100%;
+    transition: background-color ease-in-out 0.2s;
+}
+
+#chrome-user:hover {
+    background-color: rgb(75, 75, 75);
+}
+
+#chrome-dots {
+    width: 0.75vw;
+    margin-left: 0.1vw;
+    padding: 0.475vw;
+    border-radius: 100%;
+    transition: background-color ease-in-out 0.2s;
+}
+
+#chrome-dots:hover {
+    background-color: rgb(75, 75, 75);
+}
+
+#chrome-header-3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items: center;
+    height: 3.4vw;
+}
+
+#chrome-header-3 p {
+    color: white;
+    font-size: 0.7vw;
+    font-weight: 600;
+    margin: 0 0.7vw 0.3vw 0;
+}
+
+#chrome-header-3 p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#chrome-header-3 img {
+    width: 1.1vw;
+    padding: 0.5vw;
+    border-radius: 100%;
+    margin-right: 0.8vw;
+    margin-left: 0.1vw;
+}
+
+#chrome-header-3 img:hover {
+    cursor: pointer;
+    background-color: rgb(75, 75, 75);
+}
+
+#chrome-page {
+    width: 100%;
+    height: 47.75vw;
+    border-radius: 0 0 0.45vw 0.45vw;
+    background-color: rgb(60, 60, 60);
+}   
+
+#chrome-container {
+    width: 45%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: start;
+    height: 50%;
+    margin: auto;
+    margin-top: 6%;
+    transition: width ease-in-out 0.2s;
+}
+
+#google-title {
+    color: white;
+    font-size: 4.5vw;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+}
+
+#chrome-container div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin-top: 1.8vw;
+}
+
+#chrome-container input {
+    width: 74%;
+    height: 2.3vw;
+    border: none;
+    font-size: 0.8vw;
+}
+
+#chrome-container input:focus {
+    border: none;
+    outline: none;
+}
+
+#chrome-container input:focus::placeholder {
+    color: transparent;
+}
+
+#chrome-search-icon2 {
+    border-radius: 1.5vw 0 0 1.5vw;
+    padding: 0.7vw 1vw;
+}
+
+#chrome-camera {
+    border-radius: 0 1.5vw 1.5vw 0;
+    padding: 0.7vw 1vw;
+}
+
+#chrome-microphone {
+    padding: 0.7vw 0.1vw;
+}
+
+#chrome-container img {
+    width: 0.9vw;
+    height: 0.9vw;
+    background-color: white;
+}
